@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { CursussComponent } from './cursuss/cursuss.component';
+import { StagiaireComponent } from './stagiaire/stagiaire.component';
+import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.component';
+import { StagiaireService } from './stagiaire/stagiaire.service';
 
 @NgModule({
   declarations: [
@@ -16,14 +19,19 @@ import { CursussComponent } from './cursuss/cursuss.component';
     MatieresComponent,
     MatiereEditComponent,
     FormateursComponent,
-    CursussComponent
+    CursussComponent,
+    StagiaireComponent,
+    EditStagiaireComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [MatiereService],
+  providers: [
+    MatiereService,
+    StagiaireService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
