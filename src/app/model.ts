@@ -40,3 +40,9 @@ export class Personne{
 export class Stagiaire extends Personne{
 
 }
+
+export class Formateur {
+    public Id : number;
+    public Externe : boolean;
+    public Competences : Array<Matiere> = new Array<Matiere>();
+}
