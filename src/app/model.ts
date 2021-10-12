@@ -16,6 +16,16 @@ export class Matiere {
     }
 }
 
+export class Formateur {
+    public Id : number;
+    public Externe : boolean;
+    public Competences : Array<Matiere> = new Array<Matiere>();
+}
+
 export class Stagiaire {
-    public DateNaissance: Date
+
+}
+
+export class Personne {
+    
 }
