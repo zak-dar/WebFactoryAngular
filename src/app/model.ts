@@ -16,22 +16,6 @@ export class Matiere {
     }
 }
 
-export class Cursus
-{
-    public Id:number;   
-    public Intitule:string; 
-    public DateDebut:Date; 
-    public DateFin :Date;
-    public Stagiaires:Array<Stagiaire> = new Array<Stagiaire>();
-    
-    constructor(id?: number,intitule?:string, dateDebut?:Date, dateFin?:Date)
-    {
-        this.Id=id;
-        this.Intitule = intitule;
-        this.DateDebut = dateDebut;
-        this.DateFin = dateFin;
-    }
-}
 
 export class Personne{
     public Id: number;
@@ -87,4 +71,23 @@ export class Formateur {
     public Id : number;
     public Externe : boolean;
     public Competences : Array<Matiere> = new Array<Matiere>();
+}
+
+export class Cursus
+{
+    public Id:number;   
+    public Intitule:string; 
+    public DateDebut:Date; 
+    public DateFin :Date;
+    public Stagiaires:Array<Stagiaire> = new Array<Stagiaire>();
+    
+    
+    constructor(id?: number,intitule?:string, dateDebut?:Date, dateFin?:Date,stagiaires?:Array<Stagiaire>)
+    {
+        this.Id=id;
+        this.Intitule = intitule;
+        this.DateDebut = dateDebut;
+        this.DateFin = dateFin;
+        this.Stagiaires=stagiaires;
+    }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Cursus } from '../model';
+import { Cursus, Stagiaire } from '../model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,8 @@ export class CursusService {
  
 
   private Cursuss: Array<Cursus> = new Array<Cursus>();
+  private stagiaire: Array<Stagiaire> = new Array<Stagiaire>();
+  
 
   constructor() { 
     this.load();
