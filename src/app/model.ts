@@ -5,6 +5,7 @@ export class Matiere {
     public Objectifs: string;
     public PreRequis: string;
     public Programme: string;
+    public Checked: boolean;
 
     constructor(id?: number, titre?: string, duree?: number, objectifs?: string, preRequis?: string, programme?: string) {
         this.Id = id;
@@ -17,7 +18,7 @@ export class Matiere {
 }
 
 
-export class Personne{
+export class Personne {
     public Id: number;
     public PersonneType: string;
     public Civilite: Civilite;
@@ -28,7 +29,7 @@ export class Personne{
     public AdresseId?: number;
     public Adresse: Adresse;
 
-    constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string){
+    constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string) {
         this.Id = id;
         this.Civilite = civilite;
         this.Nom = nom;
@@ -50,7 +51,7 @@ export class Adresse {
     public CodePostal: string;
     public Ville: string;
 
-    constructor(id: number, rue: string, codePostal: string, ville: string){
+    constructor(id: number, rue: string, codePostal: string, ville: string) {
         this.Id = id;
         this.Rue = rue;
         this.CodePostal = codePostal;
@@ -58,36 +59,43 @@ export class Adresse {
     }
 }
 
-export class Stagiaire extends Personne{
+export class Stagiaire extends Personne {
     public DateNaissance: Date;
 
-    constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: Date){
+    constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: Date) {
         super(id, civilite, nom, prenom, email, telephone);
         this.DateNaissance = dateNaissance;
     }
 }
 
 export class Formateur {
-    public Id : number;
-    public Externe : boolean;
-    public Competences : Array<Matiere> = new Array<Matiere>();
+    public Id: number;
+    public Externe: boolean;
+    public Competences: Array<Matiere> = new Array<Matiere>();
+
+    constructor(id?: number, externe?: boolean, competences?: Array<Matiere>) {
+        this.Id = id;
+        this.Externe = externe;
+        this.Competences = competences;
+    }
 }
 
-export class Cursus
-{
-    public Id:number;   
-    public Intitule:string; 
-    public DateDebut:Date; 
-    public DateFin :Date;
-    public Stagiaires:Array<Stagiaire> = new Array<Stagiaire>();
-    
-    
-    constructor(id?: number,intitule?:string, dateDebut?:Date, dateFin?:Date,stagiaires?:Array<Stagiaire>)
-    {
-        this.Id=id;
+
+
+
+export class Cursus {
+    public Id: number;
+    public Intitule: string;
+    public DateDebut: Date;
+    public DateFin: Date;
+    public Stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
+
+
+    constructor(id?: number, intitule?: string, dateDebut?: Date, dateFin?: Date, stagiaires?: Array<Stagiaire>) {
+        this.Id = id;
         this.Intitule = intitule;
         this.DateDebut = dateDebut;
         this.DateFin = dateFin;
-        this.Stagiaires=stagiaires;
+        this.Stagiaires = stagiaires;
     }
 }
