@@ -1,0 +1,43 @@
+<div class="card my-3">
+    <div class="card-header bg-info text-white">
+        <h2>Gestion des stagiaires</h2>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped" id="tableFiliere">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Civilité</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Date de naissance</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stagiaire of list()">
+                        <td>{{stagiaire.Id}}</td>
+                        <td>{{stagiaire.Civilite}}</td>
+                        <td>{{stagiaire.Nom}}</td>
+                        <td>{{stagiaire.Prenom}}</td>
+                        <td>{{stagiaire.Email}}</td>
+                        <td>{{stagiaire.Telephone}}</td>
+                        <td>{{stagiaire.DateNaissance | date:"EEEE dd/MM/yyyy"}}</td>
+                        <td>
+                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary" (click)="edit(stagiaire.Id)"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" (click)="remove(stagiaire.Id)"><i class="fa fa-trash"></i></button></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button type="button" class="btn btn-success btn-lg" (click)="add()">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
+</div>
+    <edit-stagiaire [stagiaire] = "stagiaireForm"></edit-stagiaire>
