@@ -12,7 +12,7 @@ export class EditStagiaireComponent implements OnInit {
   @Input("stagiaire")
   stagiaireForm: Stagiaire = null;
 
-  public enums = Object.values(Civilite);
+  public civilites = Object.values(Civilite);
 
   constructor(private stagaireService: StagiaireService) { }
 
