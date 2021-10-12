@@ -34,11 +34,53 @@ export class Cursus
 }
 
 export class Personne{
+    public Id: number;
+    public PersonneType: string;
+    public Civilite: Civilite;
+    public Nom: string;
+    public Prenom: string;
+    public Email: string;
+    public Telephone: string;
+    public AdresseId?: number;
+    public Adresse: Adresse;
 
+    constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string){
+        this.Id = id;
+        this.Civilite = civilite;
+        this.Nom = nom;
+        this.Prenom = prenom;
+        this.Email = email;
+        this.Telephone = telephone;
+    }
+}
+
+export enum Civilite {
+    M,
+    MME,
+    MLLE
+}
+
+export class Adresse {
+    public Id: number;
+    public Rue: string;
+    public CodePostal: string;
+    public Ville: string;
+
+    constructor(id: number, rue: string, codePostal: string, ville: string){
+        this.Id = id;
+        this.Rue = rue;
+        this.CodePostal = codePostal;
+        this.Ville = ville;
+    }
 }
 
 export class Stagiaire extends Personne{
+    public DateNaissance: Date;
 
+    constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string, dateNaissance: Date){
+        super(id, civilite, nom, prenom, email, telephone);
+        this.DateNaissance = dateNaissance;
+    }
 }
 
 export class Formateur {
