@@ -11,16 +11,14 @@
         </div>
         <div class="form-group row">
             <label for="Titre" class="col-md-2 col-form-label">Civilité :</label>
-            <input type="text" class="col-md-10 form-control" id="Titre" [(ngModel)]="stagiaireForm.Civilite">
-            <!-- <select ...>
-                <option *ngFor="let enum of enums"
-                        [value]="enum">
+            <select [(ngModel)]="stagiaireForm.Civilite">
+                <option *ngFor="let civilite of civilites" [value]="civilite">{{civilite}}
                 </option>
-              </select> -->
+            </select>
         </div>
         <div class="form-group row">
             <label for="Duree" class="col-md-2 col-form-label">Nom :</label>
-            <input type="number" class="col-md-10 form-control" id="Duree" [(ngModel)]="stagiaireForm.Nom">
+            <input type="text" class="col-md-10 form-control" id="Duree" [(ngModel)]="stagiaireForm.Nom">
         </div>
         <div class="form-group row">
             <label for="Objectifs" class="col-md-2 col-form-label">Prénom :</label>
