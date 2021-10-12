@@ -1,0 +1,35 @@
+<div class="card" id="formateurForm" *ngIf="formateur">
+        <div class="card-header bg-info text-white">
+            <h3>
+                Edition de la matière
+            </h3>
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="Id" class="col-md-2 col-form-label">Id :</label>
+                <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="formateur.Id">
+            </div>
+            <div class="form-group row">
+                <label for="Titre" class="col-md-2 col-form-label">Externe :</label>
+                <input type="checkbox" value="true" class="col-md-10 form-control" id="Externe" [(ngModel)]="formateur.Externe">               
+            </div>
+            <div class="form-group row">
+                <label for="Duree" class="col-md-2 col-form-label">Competences :</label>
+                <div *ngFor = "let competence of listCompetences">
+                        <label class="p-2">{{competence.Titre}}</label>
+                        <input class="p-2" type="checkbox" [(ngModel)]="competence.Checked">
+                        <br>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group btn-group-lg float-right">
+                <button type="button" class="btn btn-success" (click)="save()">
+                    <i class="fa fa-check"></i>
+                </button>
+                <button type="button" class="btn btn-warning" (click)="cancel()">
+                    <i class="fa fa-undo"></i>
+                </button>
+            </div>
+        </div>
+    </div>

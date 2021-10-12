@@ -9,6 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
 import { CursussComponent } from './cursuss/cursuss.component';
+import { ExternePipe } from './externe.pipe';
+import { FormateurService } from './formateurs/formateur.service';
+import { CompetencesPipe } from './competences.pipe';
+import { FormateurEditComponent } from './formateur-edit/formateur-edit.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +20,17 @@ import { CursussComponent } from './cursuss/cursuss.component';
     MatieresComponent,
     MatiereEditComponent,
     FormateursComponent,
-    CursussComponent
+    CursussComponent,
+    ExternePipe,
+    CompetencesPipe,
+    FormateurEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [MatiereService],
+  providers: [MatiereService, FormateurService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

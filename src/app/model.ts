@@ -5,6 +5,7 @@ export class Matiere {
     public Objectifs: string;
     public PreRequis: string;
     public Programme: string;
+    public Checked: boolean;
 
     constructor(id?: number, titre?: string, duree?: number, objectifs?: string, preRequis?: string, programme?: string) {
         this.Id = id;
@@ -45,4 +46,10 @@ export class Formateur {
     public Id : number;
     public Externe : boolean;
     public Competences : Array<Matiere> = new Array<Matiere>();
+
+    constructor(id? : number , externe? : boolean, competences? : Array<Matiere>){
+        this.Id = id;
+        this.Externe = externe; 
+        this.Competences = competences;
+    }
 }
