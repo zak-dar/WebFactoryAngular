@@ -15,3 +15,10 @@ export class Matiere {
         this.Programme = programme;
     }
 }
+
+export class Formateur {
+    public Id : number;
+    public Externe : boolean;
+    public Competences : Array<Matiere> = new Array<Matiere>();
+}
+
