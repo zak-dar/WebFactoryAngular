@@ -15,3 +15,7 @@ export class Matiere {
         this.Programme = programme;
     }
 }
+
+export class Stagiaire {
+    public DateNaissance: Date
+}
