@@ -8,13 +8,15 @@ import { MatiereService } from './matieres/matiere.service';
 import { FormsModule } from '@angular/forms';
 import { MatiereEditComponent } from './matiere-edit/matiere-edit.component';
 import { FormateursComponent } from './formateurs/formateurs.component';
+import { CursussComponent } from './cursuss/cursuss.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MatieresComponent,
     MatiereEditComponent,
-    FormateursComponent
+    FormateursComponent,
+    CursussComponent
   ],
   imports: [
     BrowserModule,
