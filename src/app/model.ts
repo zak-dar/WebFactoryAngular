@@ -81,8 +81,6 @@ export class Formateur {
 }
 
 
-
-
 export class Cursus {
     public Id: number;
     public Intitule: string;

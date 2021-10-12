@@ -10,6 +10,7 @@ export class FormateurService {
   private formateurs: Array<Formateur> = new Array<Formateur>();
   matiereService : MatiereService = new MatiereService;
 
+  
   constructor() { 
     this.load();
   }

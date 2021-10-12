@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Cursus, Stagiaire } from '../model';
+import { StagiaireService } from '../stagiaire/stagiaire.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursusService {
 
- 
-
   private Cursuss: Array<Cursus> = new Array<Cursus>();
-  private stagiaire: Array<Stagiaire> = new Array<Stagiaire>();
+  stagiaireService: StagiaireService = new StagiaireService;
+
   
 
   constructor() { 
@@ -51,8 +51,8 @@ export class CursusService {
 
 
   private load(): void {
-    this.Cursuss.push(new Cursus(1, "HTML/CSS",new Date(1-1-2021),new Date(1-4-2021)));
-    this.Cursuss.push(new Cursus(2, "C#",new Date(1-4-2021),new Date(1-6-2021)));
-    this.Cursuss.push(new Cursus(3, "Angular",new Date(1-7-2021),new Date(1-12-2021)));
+    this.Cursuss.push(new Cursus(1, "HTML/CSS",new Date(1-1-2021),new Date(1-4-2021),this.stagiaireService.findAll()));
+    this.Cursuss.push(new Cursus(2, "C#",new Date(1-4-2021),new Date(1-6-2021),this.stagiaireService.findAll()));
+    this.Cursuss.push(new Cursus(3, "Angular",new Date(1-7-2021),new Date(1-12-2021),this.stagiaireService.findAll()));
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Cursus } from '../model';
+import { Cursus, Stagiaire } from '../model';
 import { CursusService } from './cursus.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class CursussComponent implements OnInit {
 
   add(): void {
     this.CursusForm = new Cursus();
+    this.CursusForm.Stagiaires = new Array<Stagiaire>();
   }
 
   edit(id: number): void {
