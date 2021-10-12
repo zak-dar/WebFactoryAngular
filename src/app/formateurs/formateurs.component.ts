@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Formateur } from '../model';
+import { Formateur, Matiere } from '../model';
 import { FormateurService } from './formateur.service';
 
 @Component({
@@ -23,6 +23,7 @@ export class FormateursComponent implements OnInit {
 
   add(): void {
     this.formateurForm = new Formateur();
+    this.formateurForm.Competences = new Array<Matiere>();
   }
 
   edit(id: number): void {
