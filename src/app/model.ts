@@ -55,9 +55,9 @@ export class Personne{
 }
 
 export enum Civilite {
-    M,
-    MME,
-    MLLE
+    M = "M",
+    MME = "MME",
+    MLLE = "MLLE"
 }
 
 export class Adresse {
@@ -77,7 +77,7 @@ export class Adresse {
 export class Stagiaire extends Personne{
     public DateNaissance: Date;
 
-    constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string, dateNaissance: Date){
+    constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: Date){
         super(id, civilite, nom, prenom, email, telephone);
         this.DateNaissance = dateNaissance;
     }
