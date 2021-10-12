@@ -15,3 +15,28 @@ export class Matiere {
         this.Programme = programme;
     }
 }
+
+export class Cursus
+{
+    public Id:number;   
+    public Intitule:string; 
+    public DateDebut:Date; 
+    public DateFin :Date;
+    public Stagiaires:Array<Stagiaire> = new Array<Stagiaire>();
+    
+    constructor(id?: number,intitule?:string, dateDebut?:Date, dateFin?:Date)
+    {
+        this.Id=id;
+        this.Intitule = intitule;
+        this.DateDebut = dateDebut;
+        this.DateFin = dateFin;
+    }
+}
+
+export class Personne{
+
+}
+
+export class Stagiaire extends Personne{
+
+}
