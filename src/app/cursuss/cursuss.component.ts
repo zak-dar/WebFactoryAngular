@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Cursus, Stagiaire } from '../model';
+import { StagiaireService } from '../stagiaire/stagiaire.service';
 import { CursusService } from './cursus.service';
+
 
 @Component({
   selector: 'app-cursuss',
@@ -9,9 +11,23 @@ import { CursusService } from './cursus.service';
 })
 export class CursussComponent implements OnInit {
 
-  CursusForm: Cursus = null;
+  
+  @Input("formateurForm") CursusForm: Cursus;
+  listStagiaires: Array<Stagiaire>;
 
-  constructor(private CursusService: CursusService) { 
+  ngOnChanges(): void {
+    if (this.CursusForm) {
+      this.listStagiaires = this.stagiaireService.findAll();
+
+      for (let c of this.listStagiaires) {
+        c.Checked = (this.CursusForm.Stagiaires.find(m => m.Id == c.Id) != null)
+      }
+    } else {
+      this.listStagiaires = this.stagiaireService.findAll();
+    }
+  }
+
+  constructor(private CursusService: CursusService, private stagiaireService:StagiaireService) { 
   }
 
   ngOnInit(): void {
@@ -34,12 +50,22 @@ export class CursussComponent implements OnInit {
     this.CursusService.delete(id);
   }
 
+
+
   save(): void {
-    if(this.CursusForm.Id) {
+    this.CursusForm.Stagiaires = new Array<Stagiaire>();
+    for (let stagiaire of this.listStagiaires) {
+      if (stagiaire.Checked == true) {
+        this.CursusForm.Stagiaires.push(stagiaire)
+      }
+    }
+    if (this.CursusForm.Id) {
       this.CursusService.update(this.CursusForm);
     } else {
+
       this.CursusService.create(this.CursusForm);
-    } 
+    }
+    this.cancel();
   }
 
   cancel(): void {

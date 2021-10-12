@@ -13,7 +13,6 @@ export class FormateurEditComponent {
   @Input("formateurForm") formateur: Formateur;
   listCompetences: Array<Matiere>;
 
-
   constructor(private formateurService: FormateurService, private matiereService: MatiereService) {
   }
 

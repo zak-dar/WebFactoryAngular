@@ -61,6 +61,7 @@ export class Adresse {
 
 export class Stagiaire extends Personne {
     public DateNaissance: Date;
+    public Checked: boolean;
 
     constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: Date) {
         super(id, civilite, nom, prenom, email, telephone);

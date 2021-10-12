@@ -11,6 +11,7 @@
                         <th>Intitulée</th>
                         <th>Date de debut</th>
                         <th>Date de fin</th>
+                        <th>Stagiaire</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -20,6 +21,7 @@
                         <td>{{cursus.Intitule}}</td>
                         <td>{{cursus.DateDebut | date:"EEEE dd/MM/yyyy"}}</td>
                         <td>{{cursus.DateFin | date:"EEEE dd/MM/yyyy"}}</td>
+                        <td>{{cursus.Stagiaires}}</td>
                         <td>
                             <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary" (click)="edit(cursus.Id)"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" (click)="remove(cursus.Id)"><i class="fa fa-trash"></i></button></div>
                         </td>
@@ -56,6 +58,14 @@
         <div class="form-group row">
             <label for="DateFin" class="col-md-2 col-form-label">Date de fin :</label>
             <input type="date" class="col-md-10 form-control" id="DateFin" [(ngModel)]="CursusForm.DateFin">
+        </div>
+        <div class="form-group row">
+            <label for="Duree" class="col-md-2 col-form-label">Stagiaire :</label>
+            <div *ngFor = "let Stagiaire of listStagiaires">
+                    <label class="p-2">{{Stagiaire.Nom}}</label>
+                    <input class="p-2" type="checkbox" [(ngModel)]="Stagiaire.Checked">
+                    <br>
+            </div>
         </div>
     </div>
     <div class="card-footer">
