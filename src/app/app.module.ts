@@ -16,6 +16,7 @@ import { FormateurEditComponent } from './formateur-edit/formateur-edit.componen
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.component';
 import { StagiaireService } from './stagiaire/stagiaire.service';
+import { AffichageStagiairePageCursusPipe } from './affichage-stagiaire-page-cursus.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StagiaireService } from './stagiaire/stagiaire.service';
     CompetencesPipe,
     FormateurEditComponent,
     StagiaireComponent,
-    EditStagiaireComponent
+    EditStagiaireComponent,
+    AffichageStagiairePageCursusPipe
   ],
   imports: [
     BrowserModule,

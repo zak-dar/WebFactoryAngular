@@ -21,7 +21,7 @@
                         <td>{{cursus.Intitule}}</td>
                         <td>{{cursus.DateDebut | date:"EEEE dd/MM/yyyy"}}</td>
                         <td>{{cursus.DateFin | date:"EEEE dd/MM/yyyy"}}</td>
-                        <td>{{cursus.Stagiaires}}</td>
+                        <td>{{cursus.Stagiaires | affichageStagiairePageCursus}}</td>
                         <td>
                             <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary" (click)="edit(cursus.Id)"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" (click)="remove(cursus.Id)"><i class="fa fa-trash"></i></button></div>
                         </td>
@@ -39,7 +39,7 @@
 <div class="card" id="CursusForm" *ngIf="CursusForm">
     <div class="card-header bg-info text-white">
         <h3>
-            Edition de la cursus
+            Edition du cursus
         </h3>
     </div>
     <div class="card-body">

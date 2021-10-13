@@ -11,11 +11,11 @@ import { CursusService } from './cursus.service';
 })
 export class CursussComponent implements OnInit {
 
-  
-  @Input("formateurForm") CursusForm: Cursus;
+  CursusForm : Cursus = null;
+
   listStagiaires: Array<Stagiaire>;
 
-  ngOnChanges(): void {
+  chargement(): void {
     if (this.CursusForm) {
       this.listStagiaires = this.stagiaireService.findAll();
 
@@ -25,6 +25,7 @@ export class CursussComponent implements OnInit {
     } else {
       this.listStagiaires = this.stagiaireService.findAll();
     }
+    console.log(this.listStagiaires)
   }
 
   constructor(private CursusService: CursusService, private stagiaireService:StagiaireService) { 
@@ -39,7 +40,8 @@ export class CursussComponent implements OnInit {
 
   add(): void {
     this.CursusForm = new Cursus();
-    this.CursusForm.Stagiaires = new Array<Stagiaire>();
+    this.CursusForm.Stagiaires = this.stagiaireService.findAll();
+    this.chargement();
   }
 
   edit(id: number): void {
