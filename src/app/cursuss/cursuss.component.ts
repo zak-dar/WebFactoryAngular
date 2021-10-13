@@ -11,24 +11,23 @@ import { CursusService } from './cursus.service';
 })
 export class CursussComponent implements OnInit {
 
-  CursusForm : Cursus = null;
+  CursusForm: Cursus = null;
 
   listStagiaires: Array<Stagiaire>;
 
   chargement(): void {
     if (this.CursusForm) {
-      this.listStagiaires = this.stagiaireService.findAll();
-
+      this.listStagiaires = this.CursusService.stagiaireService.findAll();
       for (let c of this.listStagiaires) {
-        c.Checked = (this.CursusForm.Stagiaires.find(m => m.Id == c.Id) != null)
+        c.Checked = (this.CursusForm.Stagiaires.find(m => m.Id == c.Id) != null) // recupere les stagiaires du cursus checkés et les enregistre
       }
+      console.log(this.listStagiaires);
     } else {
       this.listStagiaires = this.stagiaireService.findAll();
     }
-    console.log(this.listStagiaires)
   }
 
-  constructor(private CursusService: CursusService, private stagiaireService:StagiaireService) { 
+  constructor(private CursusService: CursusService, private stagiaireService: StagiaireService) {
   }
 
   ngOnInit(): void {
@@ -40,12 +39,13 @@ export class CursussComponent implements OnInit {
 
   add(): void {
     this.CursusForm = new Cursus();
-    this.CursusForm.Stagiaires = this.stagiaireService.findAll();
+    this.CursusForm.Stagiaires = new Array<Stagiaire>();
     this.chargement();
   }
 
   edit(id: number): void {
-    this.CursusForm = {... this.CursusService.find(id)};
+    this.CursusForm = { ... this.CursusService.find(id) }; // recupere le cursus qu'on veut modifier
+    this.chargement();
   }
 
   remove(id: number): void {

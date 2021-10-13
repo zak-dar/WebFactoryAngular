@@ -49,8 +49,8 @@ export class StagiaireService {
 
 
   private load(): void {
-    this.stagiaires.push(new Stagiaire(1, Civilite.M, "Dupont", "Samuel", "s.dupont@toto.fr", "0620202020", new Date("1950-08-07")));
-    this.stagiaires.push(new Stagiaire(2, Civilite.MLLE, "Martial", "Héleine", "h.martial@toto.fr", "0620202020", new Date("1970-08-07")));
-    this.stagiaires.push(new Stagiaire(3, Civilite.MME, "Merkel", "Angela", "a.merkel@toto.fr", "0620202020", new Date("1980-08-07")));
+    this.stagiaires.push(new Stagiaire(1, Civilite.M, "Dupont", "Samuel", "s.dupont@toto.fr", "0620202020", "1950-08-07"));
+    this.stagiaires.push(new Stagiaire(2, Civilite.MLLE, "Martial", "Héleine", "h.martial@toto.fr", "0620202020", "1970-08-07"));
+    this.stagiaires.push(new Stagiaire(3, Civilite.MME, "Merkel", "Angela", "a.merkel@toto.fr", "0620202020", "1980-08-07"));
   }
 }

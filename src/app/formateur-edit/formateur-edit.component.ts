@@ -15,11 +15,9 @@ export class FormateurEditComponent {
 
   constructor(private formateurService: FormateurService, private matiereService: MatiereService) {
   }
-
   ngOnChanges(): void {
     if (this.formateur) {
       this.listCompetences = this.matiereService.findAll();
-
       for (let c of this.listCompetences) {
         c.Checked = (this.formateur.Competences.find(m => m.Id == c.Id) != null)
       }

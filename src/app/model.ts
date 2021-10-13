@@ -60,10 +60,10 @@ export class Adresse {
 }
 
 export class Stagiaire extends Personne {
-    public DateNaissance: Date;
+    public DateNaissance: string;
     public Checked: boolean;
 
-    constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: Date) {
+    constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: string) {
         super(id, civilite, nom, prenom, email, telephone);
         this.DateNaissance = dateNaissance;
     }
@@ -85,12 +85,12 @@ export class Formateur {
 export class Cursus {
     public Id: number;
     public Intitule: string;
-    public DateDebut: Date;
-    public DateFin: Date;
+    public DateDebut: string;
+    public DateFin: string;
     public Stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
 
 
-    constructor(id?: number, intitule?: string, dateDebut?: Date, dateFin?: Date, stagiaires?: Array<Stagiaire>) {
+    constructor(id?: number, intitule?: string, dateDebut?: string, dateFin?: string, stagiaires?: Array<Stagiaire>) {
         this.Id = id;
         this.Intitule = intitule;
         this.DateDebut = dateDebut;

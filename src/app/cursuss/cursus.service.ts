@@ -51,8 +51,8 @@ export class CursusService {
 
 
   private load(): void {
-    this.Cursuss.push(new Cursus(1, "HTML/CSS",new Date(1-1-2021),new Date(1-4-2021),this.stagiaireService.findAll()));
-    this.Cursuss.push(new Cursus(2, "C#",new Date(1-4-2021),new Date(1-6-2021),this.stagiaireService.findAll()));
-    this.Cursuss.push(new Cursus(3, "Angular",new Date(1-7-2021),new Date(1-12-2021),this.stagiaireService.findAll()));
+    this.Cursuss.push(new Cursus(1, "HTML/CSS","2021-01-01","2021-04-01",this.stagiaireService.findAll()));
+    this.Cursuss.push(new Cursus(2, "C#","2021-01-01","2021-06-01",this.stagiaireService.findAll()));
+    this.Cursuss.push(new Cursus(3, "Angular","2021-01-01","2021-12-01",this.stagiaireService.findAll()));
   }
 }
