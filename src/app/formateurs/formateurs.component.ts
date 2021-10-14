@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Formateur, Matiere } from '../model';
-import { FormateurService } from './formateur.service';
+import { MatiereHttpService } from '../matieres/matiere-http.service';
+import { Formateur, FormateurMatiereVM, Matiere } from '../model';
+import { FormateurHttpService } from './formateur-http.service';
 
 @Component({
   selector: 'formateurs',
@@ -11,7 +12,7 @@ export class FormateursComponent implements OnInit {
 
   formateurForm: Formateur = null;
 
-  constructor(private formateurService: FormateurService) { 
+  constructor(private formateurService: FormateurHttpService, private matiereService : MatiereHttpService) { 
   }
 
   ngOnInit(): void {
@@ -23,11 +24,13 @@ export class FormateursComponent implements OnInit {
 
   add(): void {
     this.formateurForm = new Formateur();
-    this.formateurForm.Competences = new Array<Matiere>();
+    this.formateurForm.competences = new Array<FormateurMatiereVM>();
   }
 
   edit(id: number): void {
-    this.formateurForm = {... this.formateurService.find(id)};
+    this.formateurService.find(id).subscribe(response => {
+      this.formateurForm = response;
+    }, error => console.log(error));
   }
 
   remove(id: number): void {

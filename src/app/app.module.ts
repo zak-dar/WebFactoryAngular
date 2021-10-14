@@ -17,6 +17,7 @@ import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.component';
 import { StagiaireService } from './stagiaire/stagiaire.service';
 import { AffichageStagiairePageCursusPipe } from './affichage-stagiaire-page-cursus.pipe';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AffichageStagiairePageCursusPipe } from './affichage-stagiaire-page-cur
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     FormateurService,

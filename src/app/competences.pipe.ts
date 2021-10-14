@@ -9,7 +9,7 @@ export class CompetencesPipe implements PipeTransform {
   transform(value: Array<Matiere>): string {
     let chaine : string = "";
     for(let matieres of value){
-      chaine += " " + matieres.Titre
+      chaine += " " + matieres.titre
     }
     return chaine
 
