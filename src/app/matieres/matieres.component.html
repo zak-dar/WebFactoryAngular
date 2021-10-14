@@ -16,12 +16,17 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let matiere of list()">
-                        <td>{{matiere.Id}}</td>
-                        <td>{{matiere.Titre}}</td>
-                        <td>{{matiere.Duree}}</td>
-                        <td>{{matiere.PreRequis}}</td>
+                        <td>{{matiere.id}}</td>
+                        <td>{{matiere.titre}}</td>
+                        <td>{{matiere.duree}}</td>
+                        <td>{{matiere.preRequis}}</td>
                         <td>
-                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary" (click)="edit(matiere.Id)"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" (click)="remove(matiere.Id)"><i class="fa fa-trash"></i></button></div>
+                            <ul>
+                                <li *ngFor="let form of matiere.formateurs">({{form.id}}) {{form.prenom}} {{form.nom}}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="btn-group btn-group-sm"><button type="button" class="btn btn-primary" (click)="edit(matiere.id)"><i class="fa fa-edit"></i></button><button type="button" class="btn btn-danger" (click)="remove(matiere.id)"><i class="fa fa-trash"></i></button></div>
                         </td>
                     </tr>
                 </tbody>
@@ -35,5 +40,4 @@
     </div>
 </div>
 
-<matiere-edit [matiereForm]="matiereForm"></matiere-edit>
-
+<matiere-edit [matiere]="matiereForm" (deleteRequest)="remove($event)" *ngIf="matiereForm" (cancelRequest)="cancel()"></matiere-edit>

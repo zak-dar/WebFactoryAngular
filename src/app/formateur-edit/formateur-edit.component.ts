@@ -1,7 +1,9 @@
 import { Component, Input } from '@angular/core';
+import { FormateurHttpService } from '../formateurs/formateur-http.service';
 import { FormateurService } from '../formateurs/formateur.service';
+import { MatiereHttpService } from '../matieres/matiere-http.service';
 import { MatiereService } from '../matieres/matiere.service';
-import { Formateur, Matiere } from '../model';
+import { Formateur, FormateurMatiereVM, Matiere } from '../model';
 
 @Component({
   selector: 'formateur-edit',
@@ -12,28 +14,44 @@ export class FormateurEditComponent {
 
   @Input("formateurForm") formateur: Formateur;
   listCompetences: Array<Matiere>;
+  matieres: Array<Matiere>;
 
-  constructor(private formateurService: FormateurService, private matiereService: MatiereService) {
+  constructor(private formateurService: FormateurHttpService, private matiereService: MatiereHttpService) {
   }
   ngOnChanges(): void {
-    if (this.formateur) {
-      this.listCompetences = this.matiereService.findAll();
-      for (let c of this.listCompetences) {
-        c.Checked = (this.formateur.Competences.find(m => m.Id == c.Id) != null)
+
+    this.matieres = new Array<Matiere>();
+
+    let matieresTMP = this.matiereService.findAll();
+
+    for (let mat of matieresTMP) {
+      mat.checked = false;
+      for (let comp of this.formateur.competences) {
+        if (mat.id == comp.matiereId) {
+          mat.checked = true;
+        }
       }
-    } else {
-      this.listCompetences = this.matiereService.findAll();
+      this.matieres.push(mat);
     }
+
+    console.log(this.matieres);
   }
 
   save(): void {
-    this.formateur.Competences = new Array<Matiere>();
-    for (let competence of this.listCompetences) {
-      if (competence.Checked == true) {
-        this.formateur.Competences.push(competence)
-      }
+
+    this.formateur.competences = new Array<FormateurMatiereVM>();
+    console.log(this.matieres);
+
+      for (let mat of this.matieres) {
+        if (mat.checked == true) {
+          let compTMP: FormateurMatiereVM = new FormateurMatiereVM();
+          compTMP.matiereId = mat.id;
+          compTMP.titre = mat.titre;
+          this.formateur.competences.push(compTMP)
+        }
+
     }
-    if (this.formateur.Id) {
+    if (this.formateur.id) {
       this.formateurService.update(this.formateur);
     } else {
 

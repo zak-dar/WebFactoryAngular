@@ -1,19 +1,21 @@
 export class Matiere {
-    public Id: number;
-    public Titre: string;
-    public Duree: number;
-    public Objectifs: string;
-    public PreRequis: string;
-    public Programme: string;
-    public Checked: boolean;
+    public id: number;
+    public titre: string;
+    public duree: number;
+    public objectifs: string;
+    public preRequis: string;
+    public programme: string;
+    public formateurs: Array<Formateur>;
+    public checked: boolean;
 
     constructor(id?: number, titre?: string, duree?: number, objectifs?: string, preRequis?: string, programme?: string) {
-        this.Id = id;
-        this.Titre = titre;
-        this.Duree = duree;
-        this.Objectifs = objectifs;
-        this.PreRequis = preRequis;
-        this.Programme = programme;
+        this.id = id;
+        this.titre = titre;
+        this.duree = duree;
+        this.objectifs = objectifs;
+        this.preRequis = preRequis;
+        this.programme = programme;
+        this.formateurs = new Array<Formateur>();
     }
 }
 
@@ -70,14 +72,26 @@ export class Stagiaire extends Personne {
 }
 
 export class Formateur {
-    public Id: number;
-    public Externe: boolean;
-    public Competences: Array<Matiere> = new Array<Matiere>();
+    public id: number;
+    public externe: boolean;
+    public nom : string;
+    public prenom : string;
+    public email : string;
+    public competences: Array<FormateurMatiereVM> = new Array<FormateurMatiereVM>();
 
-    constructor(id?: number, externe?: boolean, competences?: Array<Matiere>) {
-        this.Id = id;
-        this.Externe = externe;
-        this.Competences = competences;
+    constructor(id?: number, externe?: boolean, competences?: Array<FormateurMatiereVM>) {
+        this.id = id;
+        this.externe = externe;
+        this.competences = competences;
+    }
+}
+
+export class FormateurMatiereVM {
+    public matiereId : number;
+    public titre : string;
+
+    constructor(){
+
     }
 }
 
