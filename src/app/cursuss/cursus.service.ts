@@ -21,31 +21,31 @@ export class CursusService {
   }
 
   find(id: number): Cursus {
-    return this.Cursuss.find(m => m.Id == id);
+    return this.Cursuss.find(m => m.id == id);
   }
 
   create(Cursus: Cursus) : void {
     let max: number = 0;
 
     for(let mat of this.Cursuss) {
-      if(max < mat.Id) {
-        max = mat.Id;
+      if(max < mat.id) {
+        max = mat.id;
       }
     }
 
-    Cursus.Id = ++max;
+    Cursus.id = ++max;
 
     this.Cursuss.push(Cursus);
   }
 
   update(Cursus: Cursus) : void {
-    const position: number = this.Cursuss.findIndex(m => m.Id == Cursus.Id);
+    const position: number = this.Cursuss.findIndex(m => m.id == Cursus.id);
 
     this.Cursuss[position] = Cursus;
   }
 
   delete(id: number): void {
-    const position: number = this.Cursuss.findIndex(m => m.Id == id);
+    const position: number = this.Cursuss.findIndex(m => m.id == id);
     this.Cursuss.splice(position, 1);
   }
 

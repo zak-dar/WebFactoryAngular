@@ -8,8 +8,9 @@ export class AffichageStagiairePageCursusPipe implements PipeTransform {
 
   transform(value: Array<Stagiaire>): string {
     let chaine : string = "";
-    for(let matieres of value){
-      chaine += " " + matieres.Nom + "-" + matieres.Prenom
+    for(let stagiaire of value){
+      console.log(stagiaire);
+      chaine += " " + stagiaire.nom + "-" + stagiaire.prenom
     }
     return chaine
 

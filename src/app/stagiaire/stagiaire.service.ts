@@ -17,31 +17,31 @@ export class StagiaireService {
   }
 
   find(id: number): Stagiaire {
-    return this.stagiaires.find(m => m.Id == id);
+    return this.stagiaires.find(m => m.id == id);
   }
 
   create(stagiaire: Stagiaire) : void {
     let max: number = 0;
 
     for(let mat of this.stagiaires) {
-      if(max < mat.Id) {
-        max = mat.Id;
+      if(max < mat.id) {
+        max = mat.id;
       }
     }
 
-    stagiaire.Id = ++max;
+    stagiaire.id = ++max;
 
     this.stagiaires.push(stagiaire);
   }
 
   update(stagiaire: Stagiaire) : void {
-    const position: number = this.stagiaires.findIndex(m => m.Id == stagiaire.Id);
+    const position: number = this.stagiaires.findIndex(m => m.id == stagiaire.id);
 
     this.stagiaires[position] = stagiaire;
   }
 
   delete(id: number): void {
-    const position: number = this.stagiaires.findIndex(m => m.Id == id);
+    const position: number = this.stagiaires.findIndex(m => m.id == id);
 
     this.stagiaires.splice(position, 1);
   }

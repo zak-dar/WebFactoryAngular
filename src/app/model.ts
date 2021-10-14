@@ -19,23 +19,23 @@ export class Matiere {
 
 
 export class Personne {
-    public Id: number;
-    public PersonneType: string;
-    public Civilite: Civilite;
-    public Nom: string;
-    public Prenom: string;
-    public Email: string;
-    public Telephone: string;
-    public AdresseId?: number;
-    public Adresse: Adresse;
+    public id: number;
+    public personneType: string;
+    public civilite: Civilite;
+    public nom: string;
+    public prenom: string;
+    public email: string;
+    public telephone: string;
+    public adresseId?: number;
+    public adresse: Adresse;
 
     constructor(id: number, civilite: Civilite, nom: string, prenom: string, email: string, telephone: string) {
-        this.Id = id;
-        this.Civilite = civilite;
-        this.Nom = nom;
-        this.Prenom = prenom;
-        this.Email = email;
-        this.Telephone = telephone;
+        this.id = id;
+        this.civilite = civilite;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
     }
 }
 
@@ -46,26 +46,26 @@ export enum Civilite {
 }
 
 export class Adresse {
-    public Id: number;
-    public Rue: string;
-    public CodePostal: string;
-    public Ville: string;
+    public id: number;
+    public rue: string;
+    public codePostal: string;
+    public ville: string;
 
     constructor(id: number, rue: string, codePostal: string, ville: string) {
-        this.Id = id;
-        this.Rue = rue;
-        this.CodePostal = codePostal;
-        this.Ville = ville;
+        this.id = id;
+        this.rue = rue;
+        this.codePostal = codePostal;
+        this.ville = ville;
     }
 }
 
 export class Stagiaire extends Personne {
-    public DateNaissance: string;
-    public Checked: boolean;
+    public dateNaissance: string;
+    public checked: boolean;
 
     constructor(id?: number, civilite?: Civilite, nom?: string, prenom?: string, email?: string, telephone?: string, dateNaissance?: string) {
         super(id, civilite, nom, prenom, email, telephone);
-        this.DateNaissance = dateNaissance;
+        this.dateNaissance = dateNaissance;
     }
 }
 
@@ -83,18 +83,18 @@ export class Formateur {
 
 
 export class Cursus {
-    public Id: number;
-    public Intitule: string;
-    public DateDebut: string;
-    public DateFin: string;
-    public Stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
+    public id: number;
+    public intitule: string;
+    public dateDebut: string;
+    public dateFin: string;
+    public stagiaires: Array<Stagiaire> = new Array<Stagiaire>();
 
 
     constructor(id?: number, intitule?: string, dateDebut?: string, dateFin?: string, stagiaires?: Array<Stagiaire>) {
-        this.Id = id;
-        this.Intitule = intitule;
-        this.DateDebut = dateDebut;
-        this.DateFin = dateFin;
-        this.Stagiaires = stagiaires;
+        this.id = id;
+        this.intitule = intitule;
+        this.dateDebut = dateDebut;
+        this.dateFin = dateFin;
+        this.stagiaires = stagiaires;
     }
 }

@@ -17,7 +17,7 @@ export class EditStagiaireComponent implements OnInit {
   constructor(private stagaireService: StagiaireService) { }
 
   save(): void {
-    if(this.stagiaireForm.Id) {
+    if(this.stagiaireForm.id) {
       this.stagaireService.update(this.stagiaireForm);
     } else {
       this.stagaireService.create(this.stagiaireForm);

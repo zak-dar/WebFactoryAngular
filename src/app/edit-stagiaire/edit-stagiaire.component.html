@@ -7,34 +7,34 @@
     <div class="card-body">
         <div class="form-group row">
             <label for="Id" class="col-md-2 col-form-label">Id:</label>
-            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="stagiaireForm.Id">
+            <input type="number" class="col-md-10 form-control" id="Id" readonly [(ngModel)]="stagiaireForm.id">
         </div>
         <div class="form-group row">
             <label for="Titre" class="col-md-2 col-form-label">Civilité :</label>
-            <select [(ngModel)]="stagiaireForm.Civilite">
+            <select [(ngModel)]="stagiaireForm.civilite">
                 <option *ngFor="let civilite of civilites" [value]="civilite">{{civilite}}
                 </option>
             </select>
         </div>
         <div class="form-group row">
             <label for="Duree" class="col-md-2 col-form-label">Nom :</label>
-            <input type="text" class="col-md-10 form-control" id="Duree" [(ngModel)]="stagiaireForm.Nom">
+            <input type="text" class="col-md-10 form-control" id="Duree" [(ngModel)]="stagiaireForm.nom">
         </div>
         <div class="form-group row">
             <label for="Objectifs" class="col-md-2 col-form-label">Prénom :</label>
-            <input type="text" class="col-md-10 form-control" id="Objectifs" [(ngModel)]="stagiaireForm.Prenom">
+            <input type="text" class="col-md-10 form-control" id="Objectifs" [(ngModel)]="stagiaireForm.prenom">
         </div>
         <div class="form-group row">
             <label for="PreRequis" class="col-md-2 col-form-label">Email :</label>
-            <input type="text" class="col-md-10 form-control" id="PreRequis" [(ngModel)]="stagiaireForm.Email">
+            <input type="text" class="col-md-10 form-control" id="PreRequis" [(ngModel)]="stagiaireForm.email">
         </div>
         <div class="form-group row">
             <label for="Programme" class="col-md-2 col-form-label">Téléphone :</label>
-            <input type="text" class="col-md-10 form-control" id="Programme" [(ngModel)]="stagiaireForm.Telephone">
+            <input type="text" class="col-md-10 form-control" id="Programme" [(ngModel)]="stagiaireForm.telephone">
         </div>
         <div class="form-group row">
             <label for="Programme" class="col-md-2 col-form-label">Date de naissance :</label>
-            <input type="date" class="col-md-10 form-control" id="Programme" [(ngModel)]="stagiaireForm.DateNaissance">
+            <input type="date" class="col-md-10 form-control" id="Programme" [(ngModel)]="stagiaireForm.dateNaissance">
         </div>
     </div>
     <div class="card-footer">
