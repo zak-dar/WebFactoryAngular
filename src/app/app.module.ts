@@ -12,7 +12,6 @@ import { ExternePipe } from './externe.pipe';
 import { FormateurService } from './formateurs/formateur.service';
 import { CompetencesPipe } from './competences.pipe';
 import { FormateurEditComponent } from './formateur-edit/formateur-edit.component';
-import {HttpClientModule} from "@angular/common/http";
 import { StagiaireComponent } from './stagiaire/stagiaire.component';
 import { EditStagiaireComponent } from './edit-stagiaire/edit-stagiaire.component';
 import { StagiaireService } from './stagiaire/stagiaire.service';
